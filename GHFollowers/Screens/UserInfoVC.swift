@@ -22,20 +22,21 @@ class UserInfoVC: GFDataLoadingVC {
     var username: String!
     weak var delegate: UserInfoVCDelegate!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         configureViewController()
         layoutUI()
         getUserInfo()
     }
+    
     
     func configureViewController() {
         view.backgroundColor = .systemBackground
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.rightBarButtonItem = doneButton
     }
+    
     
     func getUserInfo() {
         NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
@@ -44,11 +45,13 @@ class UserInfoVC: GFDataLoadingVC {
             switch result {
             case .success(let user):
                 DispatchQueue.main.async { self.configureUIElements(with: user) }
+                
             case .failure(let error):
                 self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
+    
     
     func configureUIElements(with user: User) {
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
@@ -57,10 +60,12 @@ class UserInfoVC: GFDataLoadingVC {
         self.dateLabel.text = "Gihub since \(user.createdAt.convertTOMonthYearFormat())"
     }
     
+    
     func layoutUI() {
-        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         let padding: CGFloat = 20
         let itemHeight: CGFloat = 140
+        
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -86,6 +91,7 @@ class UserInfoVC: GFDataLoadingVC {
         ])
     }
     
+    
     func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
         containerView.addSubview(childVC.view)
@@ -93,25 +99,16 @@ class UserInfoVC: GFDataLoadingVC {
         childVC.didMove(toParent: self)
     }
     
+    
     @objc func dismissVC() {
         dismiss(animated: true)
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
+
 extension UserInfoVC: GFRepoItemVCDelegate{
+    
     func didTapGithubProfile(for user: User) {
-        // Show safari view controller
         guard let url = URL(string: user.htmlUrl) else {
             presentGFAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
             return
@@ -121,10 +118,10 @@ extension UserInfoVC: GFRepoItemVCDelegate{
     }
 }
 
+
 extension UserInfoVC: GFFollowerItemVCDelegate{
+    
     func didTapGetFollowers(for user: User) {
-        // dismissvc
-        // tell follower list screen the new user
         guard user.followers != 0 else {
             presentGFAlertOnMainThread(title: "No followers", message: "This user has no follower", buttonTitle: "So Sad")
             return

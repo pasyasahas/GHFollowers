@@ -215,10 +215,10 @@
 		15C838CB2D81DB5300530289 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				15C838AF2D81DB4F00530289 /* FavoritesListVC.swift */,
-				15C838B02D81DB4F00530289 /* FollowerListVC.swift */,
-				151EB27D2D887163006D75E6 /* UserInfoVC.swift */,
 				15C838BA2D81DB4F00530289 /* SearchVC.swift */,
+				15C838B02D81DB4F00530289 /* FollowerListVC.swift */,
+				15C838AF2D81DB4F00530289 /* FavoritesListVC.swift */,
+				151EB27D2D887163006D75E6 /* UserInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -281,8 +281,8 @@
 		15C838D72D81FB6D00530289 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				151EB27F2D8881A1006D75E6 /* GFError.swift */,
 				159F8B0D2D83463B0048AF79 /* UIHelper.swift */,
+				151EB27F2D8881A1006D75E6 /* GFError.swift */,
 				151EB2852D88912B006D75E6 /* Constants.swift */,
 			);
 			path = Utilities;
