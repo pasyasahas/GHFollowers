@@ -11,30 +11,40 @@ class GFButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        // custom code
         configure()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(backgroundColor: UIColor, title: String) {
+    
+    convenience init(color: UIColor, title: String, systemImmageName: String) {
         self.init(frame: .zero)
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+        set(color: color, title: title, systemImmageName: systemImmageName)
     }
     
+    
     private func configure() {
-        layer.cornerRadius = 10
-        setTitleColor(.white, for: .normal)
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        configuration = .tinted()
+        configuration?.cornerStyle = .medium
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func set(backgroundColor: UIColor, title: String) {
-        self.backgroundColor = backgroundColor
-        self.setTitle(title, for: .normal)
+    
+    final func set(color: UIColor, title: String, systemImmageName: String) {
+        configuration?.baseBackgroundColor = color
+        configuration?.baseForegroundColor = color
+        configuration?.title = title
+        
+        configuration?.image = UIImage(systemName: systemImmageName)
+        configuration?.imagePadding = 6
+        configuration?.imagePlacement = .leading
     }
     
+}
+
+#Preview {
+    GFButton(color: .systemBlue, title: "Preview", systemImmageName: "plus")
 }

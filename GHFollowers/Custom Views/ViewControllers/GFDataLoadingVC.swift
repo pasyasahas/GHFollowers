@@ -11,11 +11,11 @@ class GFDataLoadingVC: UIViewController {
     
     var containerView: UIView!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
     
     func showloadingView() {
         containerView = UIView(frame: view.bounds)
@@ -39,6 +39,7 @@ class GFDataLoadingVC: UIViewController {
         activityIndicator.startAnimating()
     }
     
+    
     func dismissLoadingView() {
         DispatchQueue.main.async {
             self.containerView.removeFromSuperview()
@@ -46,21 +47,11 @@ class GFDataLoadingVC: UIViewController {
         }
     }
     
+    
     func showEmptyStateView(with message: String, in view: UIView) {
         let emptyStateView = GFEmptyStateView(message: message)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

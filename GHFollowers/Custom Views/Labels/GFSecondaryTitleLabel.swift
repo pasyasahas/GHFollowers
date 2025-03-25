@@ -14,14 +14,17 @@ class GFSecondaryTitleLabel: UILabel {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     convenience init(fontSize: CGFloat) {
         self.init(frame: .zero)
         font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
     }
+    
     
     private func configure() {
         textColor = .secondaryLabel
@@ -30,13 +33,4 @@ class GFSecondaryTitleLabel: UILabel {
         lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }
