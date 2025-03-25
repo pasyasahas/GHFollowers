@@ -17,6 +17,7 @@
 		151EB2822D8883EF006D75E6 /* GFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151EB2812D8883EF006D75E6 /* GFUserInfoHeaderVC.swift */; };
 		151EB2842D88846E006D75E6 /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151EB2832D88846E006D75E6 /* GFSecondaryTitleLabel.swift */; };
 		151EB2862D88912B006D75E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151EB2852D88912B006D75E6 /* Constants.swift */; };
+		152C69832D93575100C03372 /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152C69822D93575100C03372 /* FollowerView.swift */; };
 		159F8B0A2D832F760048AF79 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F8B092D832F760048AF79 /* FollowerCell.swift */; };
 		159F8B0C2D8330080048AF79 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F8B0B2D8330080048AF79 /* GFAvatarImageView.swift */; };
 		159F8B0E2D83463B0048AF79 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159F8B0D2D83463B0048AF79 /* UIHelper.swift */; };
@@ -57,6 +58,7 @@
 		151EB2812D8883EF006D75E6 /* GFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		151EB2832D88846E006D75E6 /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		151EB2852D88912B006D75E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		152C69822D93575100C03372 /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
 		155E64CD2D7F423E00AFBEC2 /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		159F8B092D832F760048AF79 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		159F8B0B2D8330080048AF79 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
@@ -164,6 +166,15 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		152C69812D93572700C03372 /* FollowerCell */ = {
+			isa = PBXGroup;
+			children = (
+				159F8B092D832F760048AF79 /* FollowerCell.swift */,
+				152C69822D93575100C03372 /* FollowerView.swift */,
+			);
+			path = FollowerCell;
+			sourceTree = "<group>";
+		};
 		155E64C42D7F423E00AFBEC2 = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +194,7 @@
 		159F8B082D832F480048AF79 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				159F8B092D832F760048AF79 /* FollowerCell.swift */,
+				152C69812D93572700C03372 /* FollowerCell */,
 				15C537072D8C673A00B53F94 /* FavoriteCell.swift */,
 			);
 			path = Cells;
@@ -391,6 +402,7 @@
 				1519AE1F2D84911B00DECF31 /* GFEmptyStateView.swift in Sources */,
 				15C838D62D81ECC800530289 /* NetworkManager.swift in Sources */,
 				15C838C52D81DB4F00530289 /* SceneDelegate.swift in Sources */,
+				152C69832D93575100C03372 /* FollowerView.swift in Sources */,
 				15C838C62D81DB4F00530289 /* SearchVC.swift in Sources */,
 				15C838C72D81DB4F00530289 /* UIViewController+Ext.swift in Sources */,
 				15B4920A2D8DC872003B953E /* UIView+Ext.swift in Sources */,
@@ -425,7 +437,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,7 +463,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

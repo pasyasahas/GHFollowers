@@ -44,3 +44,7 @@ class GFButton: UIButton {
     }
     
 }
+
+#Preview {
+    GFButton(color: .systemBlue, title: "Preview", systemImmageName: "plus")
+}

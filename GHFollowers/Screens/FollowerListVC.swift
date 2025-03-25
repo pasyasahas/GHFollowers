@@ -51,6 +51,15 @@ class FollowerListVC: GFDataLoadingVC {
     }
     
     
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if isSearching && filteredFollowers.isEmpty {
+            contentUnavailableConfiguration = UIContentUnavailableConfiguration.search()
+        } else {
+            contentUnavailableConfiguration = nil
+        }
+    }
+    
+    
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -155,9 +164,9 @@ class FollowerListVC: GFDataLoadingVC {
         let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
         
         PersistanceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
-            guard let self = self else { return }
+            guard let self else { return }
             
-            guard let error = error else {
+            guard let error else {
                 DispatchQueue.main.async {
                     self.presentGFAlert(title: "Success!", message: "You have succesfully saved the user to favorites", buttonTitle: "Ok")
                 }
@@ -206,12 +215,14 @@ extension FollowerListVC: UISearchResultsUpdating {
             filteredFollowers.removeAll()
             updateData(on: followers)
             isSearching = false
+            setNeedsUpdateContentUnavailableConfiguration()
             return
         }
         
         isSearching = true
         filteredFollowers = followers.filter{ $0.login.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredFollowers)
+        setNeedsUpdateContentUnavailableConfiguration()
     }
 }
 
