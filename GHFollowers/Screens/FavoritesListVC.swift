@@ -63,7 +63,7 @@ class FavoritesListVC: GFDataLoadingVC {
     
     func updateUI(with favorites: [Follower]) {
         if favorites.isEmpty {
-            self.showEmptyStateView(with: "No Favorites?\nAdd one on to the follwer list!", in: self.view)
+            self.showEmptyStateView(with: "No Favorites?\nAdd one on to the follwer Screen!", in: self.view)
         } else {
             self.favorites = favorites
             DispatchQueue.main.async {
@@ -106,6 +106,9 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
             guard let error = error else {
                 self.favorites.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .left)
+                if self.favorites.isEmpty {
+                    self.showEmptyStateView(with: "No Favorites?\nAdd one on to the follwer Screen!", in: self.view)
+                }
                 return
             }
             DispatchQueue.main.async {
